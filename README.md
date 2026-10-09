@@ -107,7 +107,6 @@ Tests: `cargo test --workspace --release` and `npx tsc --noEmit`. The end-to-end
 
 ## Known limits
 
-* UFS2 (`.ffpkg`), PFS and PKG pass the structural tests and read-back.
 * Only standard zlib is used for compression.
 * Compressed archives (zip/7z/rar) are not supported as sources; only the first item is loaded when several are dropped.
 * A `.pkg` can only be opened if it is a debug/FPKG package with the default passcode.
