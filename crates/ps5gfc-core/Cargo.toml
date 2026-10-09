@@ -1,0 +1,23 @@
+[package]
+name = "ps5gfc-core"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "PS5 game format conversion engine (exFAT, UFS2, PFS/PFSC, folder, PKG) with no temporary files."
+
+[dependencies]
+thiserror.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+flate2.workspace = true
+crc32fast.workspace = true
+crossbeam-channel.workspace = true
+base64 = "0.22"
+tempfile = "3"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_System_Threading", "Win32_Storage_FileSystem", "Win32_System_IO", "Win32_System_Power", "Win32_System_SystemInformation"] }
+
+[dev-dependencies]
+tempfile = "3"

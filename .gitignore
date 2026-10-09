@@ -1,0 +1,13 @@
+node_modules/
+dist/
+target/
+_reference/
+release/
+*.log
+.DS_Store
+/src-tauri/gen/
+/tools/**/bin/
+/tools/**/obj/
+/tools/ps5pkg-data/out/
+/tools/ps5pkg-data/res/*
+!/tools/ps5pkg-data/res/README.md

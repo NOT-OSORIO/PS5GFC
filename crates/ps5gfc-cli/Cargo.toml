@@ -1,0 +1,14 @@
+[package]
+name = "ps5gfc-cli"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "ps5gfc"
+path = "src/main.rs"
+
+[dependencies]
+ps5gfc-core = { path = "../ps5gfc-core" }
+flate2 = { workspace = true }

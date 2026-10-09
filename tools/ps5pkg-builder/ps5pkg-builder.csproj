@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>ps5pkg-builder</AssemblyName>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ps5pkg-core\PS5PKGTool.Core\PS5PKGTool.Core.csproj" />
+    <ProjectReference Include="..\ps5pkg-engine\ProsperoPkgTool.csproj" />
+    <ProjectReference Include="..\ps5pkg-data\ProsperoPkgTool.Data.csproj" />
+  </ItemGroup>
+
+  <Target Name="DropExternalData" AfterTargets="ResolveAssemblyReferences;ResolveReferences" Condition="'$(ExternalData)' == 'true'">
+    <ItemGroup>
+      <ExternalDataFile Include="@(ReferenceCopyLocalPaths)" Condition="'%(Filename)%(Extension)' == 'ProsperoPkgTool.Data.dll'" />
+      <ReferenceCopyLocalPaths Remove="@(ExternalDataFile)" />
+    </ItemGroup>
+  </Target>
+
+</Project>

@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>ProsperoPkgTool.Data</AssemblyName>
+    <RootNamespace>ProsperoPkgTool.Data</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Deterministic>true</Deterministic>
+    <DebugType>none</DebugType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="res\passcode.bin" LogicalName="passcode.bin" Condition="Exists('res\passcode.bin')" />
+    <EmbeddedResource Include="res\mount_image.bin" LogicalName="mount_image.bin" Condition="Exists('res\mount_image.bin')" />
+    <EmbeddedResource Include="res\metadata_modulus.bin" LogicalName="metadata_modulus.bin" Condition="Exists('res\metadata_modulus.bin')" />
+    <EmbeddedResource Include="res\right.sprx" LogicalName="right.sprx" Condition="Exists('res\right.sprx')" />
+    <EmbeddedResource Include="res\ks_fp3.bin" LogicalName="ks_fp3.bin" Condition="Exists('res\ks_fp3.bin')" />
+    <EmbeddedResource Include="res\ks_mac3.bin" LogicalName="ks_mac3.bin" Condition="Exists('res\ks_mac3.bin')" />
+    <EmbeddedResource Include="res\ks_fp2.bin" LogicalName="ks_fp2.bin" Condition="Exists('res\ks_fp2.bin')" />
+    <EmbeddedResource Include="res\ks_mac2.bin" LogicalName="ks_mac2.bin" Condition="Exists('res\ks_mac2.bin')" />
+  </ItemGroup>
+  <Target Name="WarnMissingConsoleData" BeforeTargets="CoreCompile">
+    <Warning Condition="!Exists('res\passcode.bin')" Text="Missing tools/ps5pkg-data/res/passcode.bin: PKG support will not work. See tools/ps5pkg-data/res/README.md." />
+    <Warning Condition="!Exists('res\mount_image.bin')" Text="Missing tools/ps5pkg-data/res/mount_image.bin: PKG support will not work. See tools/ps5pkg-data/res/README.md." />
+    <Warning Condition="!Exists('res\metadata_modulus.bin')" Text="Missing tools/ps5pkg-data/res/metadata_modulus.bin: PKG support will not work. See tools/ps5pkg-data/res/README.md." />
+    <Warning Condition="!Exists('res\right.sprx')" Text="Missing tools/ps5pkg-data/res/right.sprx: PKG support will not work. See tools/ps5pkg-data/res/README.md." />
+    <Warning Condition="!Exists('res\ks_fp3.bin')" Text="Missing tools/ps5pkg-data/res/ks_fp3.bin: PKG support will not work. See tools/ps5pkg-data/res/README.md." />
+    <Warning Condition="!Exists('res\ks_mac3.bin')" Text="Missing tools/ps5pkg-data/res/ks_mac3.bin: PKG support will not work. See tools/ps5pkg-data/res/README.md." />
+    <Warning Condition="!Exists('res\ks_fp2.bin')" Text="Missing tools/ps5pkg-data/res/ks_fp2.bin: PKG support will not work. See tools/ps5pkg-data/res/README.md." />
+    <Warning Condition="!Exists('res\ks_mac2.bin')" Text="Missing tools/ps5pkg-data/res/ks_mac2.bin: PKG support will not work. See tools/ps5pkg-data/res/README.md." />
+  </Target>
+</Project>

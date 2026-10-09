@@ -1,0 +1,22 @@
+[package]
+name = "ps5gfc-app"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+description = "PS5GFC — conversor de formatos de jogos de PS5"
+authors = ["OSØRIO"]
+
+[lib]
+name = "ps5gfc_app_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+ps5gfc-core = { path = "../crates/ps5gfc-core" }
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-opener = "2"
+serde.workspace = true
+serde_json.workspace = true
